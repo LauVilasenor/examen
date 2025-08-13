@@ -4,19 +4,19 @@ let amigos = [];
 
 //Funcion para agregar a un amigo
 function agregarAmigo(){
-    const inputAmigo = document.getElementById('amigo');
+    const inputAmigo = document.getElementById(`amigo`);
     const nombreAmigo = inputAmigo.ariaValueMax.trim();
 
 
     //Validar que el campo no esté vacío
     if(nombreAmigo === ''){
-        alert('Por favor, ingresa un nombre.');
+        alert(`Por favor, ingresa un nombre`);
         return; //Detiene la ejecución si el campo está vacío
     }
 
     //Validar que el nombre no esté repetido
     if(amigos.includes(nombreAmigo)){
-        alert('Este nombre ${nombreAmigo} ya está en la lista. Por favor, ingresa un nombre diferente.');
+        alert(`Este nombre ${nombreAmigo} ya está en la lista. Por favor, ingresa un nombre diferente`);
         return; //Detiene la ejecución si el nombre ya existe
     }
 
@@ -27,12 +27,12 @@ function agregarAmigo(){
     inputAmigo.ariaValu = '';
 
     //Actualizar la lista de amigos en la interfaz
-    actualizarLista();
+    actualizarListaAmigos();
 
 }
 //Funcion para actualizar la lista de amigos en la interfaz         
-function actualizarLista() {
-    const listaAmigos = document.getElementById('listaAmigos');
+function actualizarListaAmigos() {
+    const listaAmigos = document.getElementById(`listaAmigos`);
 
     //Limpiar la lista actual
     listaAmigos.innerHTML = ''; //Limpiar la lista actual
@@ -46,11 +46,11 @@ function actualizarLista() {
 
 
     
-    //amigos.forEach(amigo => {
-        //const li = document.createElement('li');
-        //li.textContent = amigo;
-        //lista.appendChild(li);
-    //});
+    amigos.forEach(amigo => {
+        const li = document.createElement('li');
+        li.textContent = amigo;
+        listaAmigos.appendChild(li);
+    });
 }
 
 //Funcion para seleccionar a un amigo aleatorio 
